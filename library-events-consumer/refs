@@ -1,0 +1,10 @@
+https://developer.confluent.io/learn-kafka/spring/apache-kafka-intro/
+https://docs.spring.io/spring-kafka/reference/html/
+https://www.cloudkarafka.com/docs/spring.html
+https://www.stackchief.com/blog/%40KafkaListener%20%7C%20Spring%20Boot%20Example
+https://www.stackchief.com/blog/Spring%20Boot%20Kafka%20Consumer
+
+
+//retry  handling
+https://www.baeldung.com/spring-retry-kafka-consumer
+https://www.confluent.io/blog/error-handling-patterns-in-kafka/

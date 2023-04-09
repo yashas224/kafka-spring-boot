@@ -1,0 +1,29 @@
+https://docs.spring.io/spring-kafka/reference/html/
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+https://kafka.apache.org/documentation.html
+https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+
+
+https://www.baeldung.com/spring-kafka
+https://reflectoring.io/spring-boot-kafka/
+https://www.maestralsolutions.com/spring-boot-implementation-for-apache-kafka-with-kafka-tool/
+https://ngdeveloper.com/spring-boot-kafka-producer-maven-project/
+https://reflectoring.io/spring-boot-kafka/
+
+
+
+//testing
+https://www.baeldung.com/spring-boot-kafka-testing
+
+// creating cvonsumer using embededKafkaBroker
+https://stackoverflow.com/questions/48753051/simple-embedded-kafka-test-example-with-spring-boot
+
+
+
+// Security - TLS for Kafka Brokers
+https://www.ibm.com/docs/en/zos-connect/zosconnect/3.0?topic=connect-keystores-truststores
+openssl version –a
+
+
+https://dzone.com/articles/keytool-commandutility-to-generate-a-keystorecerti
+https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/

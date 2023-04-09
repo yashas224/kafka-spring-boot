@@ -1,0 +1,12 @@
+1--
+
+curl --location --request POST 'http://localhost:8080/v1/libraryevent-header' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "libraryEventId": null,
+    "book":{
+        "bookId":1,
+        "bookName":"Maths",
+        "bookAuthor":" Sudha Rao "
+    }
+}'

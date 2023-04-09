@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  kafka:
+    template:
+      default-topic: library-events
+    producer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        retries: 3
+        acks: all
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092,localhost:9093,localhost:9094
+
+
+---
+
+spring:
+  profiles: nonprod
+  kafka:
+    template:
+      default-topic: library-events
+    producer:
+      bootstrap-servers: localhost:9095,localhost:9096,localhost:9097
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      ssl:
+        trust-store-location: file:/Users/y0s053a/Documents/personal-work/kafka-spring-boot/library-events-producer/ssl-info/client.truststore.jks
+        trust-store-password: testpassword
+        key-store-location: file:/Users/y0s053a/Documents/personal-work/kafka-spring-boot/library-events-producer/ssl-info/client.keystore.jks
+        key-store-password: testpassword
+      properties:
+        retries: 3
+        acks: all
+        security:
+          protocol: SSL
+        ssl:
+          endpoint:
+            identification:
+              algorithm:
+

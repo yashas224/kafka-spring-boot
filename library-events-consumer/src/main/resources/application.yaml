@@ -1,0 +1,80 @@
+spring:
+  profiles:
+    active: local
+server:
+  port: 8081
+topics:
+  retry: "library-events.RETRY"
+  dlt: "library-events.DLT"
+recovery-type: db-recovery
+# topic-recovery or db-recovery
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:mem:testDB
+    username: yashas
+    password: yashas
+    driverClassName: org.h2.Driver
+  #    from org.springframework.boot.autoconfigure.orm.jpa.JpaProperties
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: H2
+    generate-ddl: true
+  h2:
+    console:
+      enabled: true
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: library-events-consumer-group
+    producer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+---
+
+spring:
+  profiles: nonprod
+  datasource:
+    url: jdbc:h2:mem:testDB
+    username: yashas
+    password: yashas
+    driverClassName: org.h2.Driver
+  #    from org.springframework.boot.autoconfigure.orm.jpa.JpaProperties
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: H2
+    generate-ddl: true
+  h2:
+    console:
+      enabled: true
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9095,localhost:9096,localhost:9097
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: library-events-consumer-group
+      ssl:
+        trust-store-location: file:/Users/y0s053a/Documents/personal-work/kafka-spring-boot/library-events-producer/ssl-info/client.truststore.jks
+        trust-store-password: testpassword
+        key-store-location: file:/Users/y0s053a/Documents/personal-work/kafka-spring-boot/library-events-producer/ssl-info/client.keystore.jks
+        key-store-password: testpassword
+    properties:
+      security:
+        protocol: SSL
+      ssl:
+        endpoint:
+          identification:
+            algorithm:
+    producer:
+      bootstrap-servers: localhost:9095,localhost:9096,localhost:9097
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
