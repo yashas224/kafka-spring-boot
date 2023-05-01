@@ -7,6 +7,6 @@ curl --location --request POST 'http://localhost:8080/v1/libraryevent-header' \
     "book":{
         "bookId":1,
         "bookName":"Maths",
-        "bookAuthor":" Sudha Rao "
+        "bookAuthor":" yashas Samaga "
     }
 }'
